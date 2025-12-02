@@ -1,4 +1,5 @@
-package biblioteca;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -6,7 +7,7 @@ public class BibliotecaApp {
     private BibliotecaService servicio;
 
     public BibliotecaApp() {
-        servicio = new BibliotecaServicio(); 
+        servicio = new BibliotecaService();
     }
 
     public static void main(String[] argumentos) {
@@ -37,7 +38,7 @@ public class BibliotecaApp {
             }
         }
 
-        scanner.close()
+        scanner.close();
     }
 
     private void imprimirMenu() {
@@ -60,9 +61,11 @@ public class BibliotecaApp {
         System.out.print("Año publicación: ");
         int anio = scanner.nextInt();
         System.out.print("Ejemplares totales: ");
-        int totales = scanner.nextInt();
+        List<Integer> totales = Collections.singletonList(scanner.nextInt());
+        System.out.print("Ejemplares disponibles: ");
+        List<Integer> disponibles = Collections.singletonList(scanner.nextInt());
 
-        Libro libro = new Libro(isbn, titulo, autor, anio, total); 
+        Libro libro = new Libro(isbn, titulo, autor, anio, totales, disponibles);
         servicio.registrarLibro(libro);
     }
 
@@ -72,7 +75,7 @@ public class BibliotecaApp {
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine(); 
 
-        Usuario usuario = new Usuario(idUsuario, nombre); 
+        Usuario usuario = new Usuario(id, nombre);
         servicio.registrarUsuario(usuario);
     }
 

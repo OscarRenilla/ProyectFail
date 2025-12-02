@@ -1,7 +1,5 @@
-
-package biblioteca;
-
-import java.util.List; 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
 
@@ -37,8 +35,9 @@ public class Usuario {
 
     }
 
-    public List<Prestamo> getPrestamosActivos() {
-        return prestamos; // <- nombre de campo incorrecto
+    public static List<Prestamo> getPrestamosActivos() {
+        List<Prestamo> prestamo = new ArrayList<>();
+        return prestamo; // <- nombre de campo incorrecto
     }
 
     
