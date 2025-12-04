@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class BibliotecaApp {
         servicio = new BibliotecaService();
     }
 
-    public static void main(String[] argumentos) {
+    public static void main(String[] args) {
         BibliotecaApp app = new BibliotecaApp();
         app.ejecutarMenu();
     }
@@ -61,9 +62,9 @@ public class BibliotecaApp {
         System.out.print("Año publicación: ");
         int anio = scanner.nextInt();
         System.out.print("Ejemplares totales: ");
-        List<Integer> totales = Collections.singletonList(scanner.nextInt());
+        ArrayList<Integer> totales = (ArrayList<Integer>) Collections.singletonList(scanner.nextInt());
         System.out.print("Ejemplares disponibles: ");
-        List<Integer> disponibles = Collections.singletonList(scanner.nextInt());
+        ArrayList<Integer> disponibles = (ArrayList<Integer>) Collections.singletonList(scanner.nextInt());
 
         Libro libro = new Libro(isbn, titulo, autor, anio, totales, disponibles);
         servicio.registrarLibro(libro);

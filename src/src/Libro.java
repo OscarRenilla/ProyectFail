@@ -1,5 +1,6 @@
 // Archivo: src/biblioteca/Libro.java
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Libro {
@@ -9,10 +10,10 @@ public class Libro {
     private String titulo;
     private String autor;
     private int anioPublicacion;
-    private List<Integer> ejemplaresTotales;
+    private ArrayList<Integer> ejemplaresTotales;
     private List<Integer> ejemplaresDisponibles;
 
-    public Libro(String isbn, String titulo, String autor, int anioPublicacion, List<Integer> ejemplaresTotales, List<Integer> ejemplaresDisponibles) {
+    public Libro(String isbn, String titulo, String autor, int anioPublicacion, ArrayList<Integer> ejemplaresTotales, ArrayList<Integer> ejemplaresDisponibles) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
@@ -70,11 +71,16 @@ public class Libro {
     }
 
     public boolean estaDisponible() {
-        return ejemplaresDisponibles >= 0;
+        if (ejemplaresDisponibles.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public void prestarEjemplar() {
-        ejemplaresDisponibles--; 
+        if (!ejemplaresDisponibles.isEmpty()) {
+            ejemplaresDisponibles--;
+        }
     }
 
     public void devolverEjemplar() {
