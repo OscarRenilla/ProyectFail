@@ -57,7 +57,7 @@ public class Prestamo {
 
     public void marcarDevuelto() {
         devuelto = true;
-        libro.devolverEjemplar();
+//        libro.devolverEjemplar();
     }
 
 //    public void calcularRetrasoEnDias(LocalDateTime hoy) {

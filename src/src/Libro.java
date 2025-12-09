@@ -11,7 +11,7 @@ public class Libro {
     private String autor;
     private int anioPublicacion;
     private ArrayList<Integer> ejemplaresTotales;
-    private List<Integer> ejemplaresDisponibles;
+    private ArrayList<Integer> ejemplaresDisponibles;
 
     public Libro(String isbn, String titulo, String autor, int anioPublicacion, ArrayList<Integer> ejemplaresTotales, ArrayList<Integer> ejemplaresDisponibles) {
         this.isbn = isbn;
@@ -58,7 +58,7 @@ public class Libro {
         return ejemplaresTotales;
     }
 
-    public void setEjemplaresTotales(List<Integer> ejemplaresTotales) {
+    public void setEjemplaresTotales(ArrayList<Integer> ejemplaresTotales) {
         this.ejemplaresTotales = ejemplaresTotales;
     }
 
@@ -66,7 +66,7 @@ public class Libro {
         return ejemplaresDisponibles;
     }
 
-    public void setEjemplaresDisponibles(List<Integer> ejemplaresDisponibles) {
+    public void setEjemplaresDisponibles(ArrayList<Integer> ejemplaresDisponibles) {
         this.ejemplaresDisponibles = ejemplaresDisponibles;
     }
 
@@ -79,12 +79,12 @@ public class Libro {
 
     public void prestarEjemplar() {
         if (!ejemplaresDisponibles.isEmpty()) {
-            ejemplaresDisponibles--;
+            System.out.println("ejemplaresDisponibles --");
         }
     }
 
     public void devolverEjemplar() {
-        ejemplaresDisponibles = ejemplaresDisponibles + 1;
+        System.out.println("ejemplaresDisponibles = ejemplaresDisponibles + 1");
     }
 
     @Override
@@ -97,5 +97,5 @@ public class Libro {
                 ", ejemplaresTotales=" + ejemplaresTotales +
                 ", ejemplaresDisponibles=" + ejemplaresDisponibles +
                 '}';
-    } 
+    }
 }

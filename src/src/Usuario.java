@@ -32,7 +32,6 @@ public class Usuario {
         if (maximoPrestamosSimultaneos < 0) {
             this.maximoPrestamosSimultaneos = 0;
         }
-
     }
 
     public static List<Prestamo> getPrestamosActivos() {
