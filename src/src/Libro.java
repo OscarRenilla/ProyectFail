@@ -10,16 +10,16 @@ public class Libro {
     private String titulo;
     private String autor;
     private int anioPublicacion;
-    private ArrayList<Integer> ejemplaresTotales;
-    private ArrayList<Integer> ejemplaresDisponibles;
+    private int ejemplaresTotales;
+    private int ejemplaresDisponibles;
 
-    public Libro(String isbn, String titulo, String autor, int anioPublicacion, ArrayList<Integer> ejemplaresTotales, ArrayList<Integer> ejemplaresDisponibles) {
+    public Libro(String isbn, String titulo, String autor, int anioPublicacion, int ejemplaresTotales) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion; // <- variable mal escrita
         this.ejemplaresTotales = ejemplaresTotales;
-        this.ejemplaresDisponibles = ejemplaresDisponibles;
+        this.ejemplaresDisponibles = ejemplaresTotales;
     }
 
     public String getIsbn() {
@@ -54,37 +54,28 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
-    public List<Integer> getEjemplaresTotales() {
+    public int getEjemplaresTotales() {
         return ejemplaresTotales;
     }
 
-    public void setEjemplaresTotales(ArrayList<Integer> ejemplaresTotales) {
+    public void setEjemplaresTotales(int ejemplaresTotales) {
         this.ejemplaresTotales = ejemplaresTotales;
     }
 
-    public List<Integer> getEjemplaresDisponibles() {
-        return ejemplaresDisponibles;
-    }
-
-    public void setEjemplaresDisponibles(ArrayList<Integer> ejemplaresDisponibles) {
+    public void setEjemplaresDisponibles(int ejemplaresDisponibles) {
         this.ejemplaresDisponibles = ejemplaresDisponibles;
     }
 
     public boolean estaDisponible() {
-        if (ejemplaresDisponibles.isEmpty()) {
-            return false;
-        }
-        return true;
+        return ejemplaresDisponibles > 0;
     }
 
     public void prestarEjemplar() {
-        if (!ejemplaresDisponibles.isEmpty()) {
-            System.out.println("ejemplaresDisponibles --");
-        }
+        if (estaDisponible()) ejemplaresDisponibles--;
     }
 
     public void devolverEjemplar() {
-        System.out.println("ejemplaresDisponibles = ejemplaresDisponibles + 1");
+        if (ejemplaresDisponibles < ejemplaresTotales) ejemplaresDisponibles++;
     }
 
     @Override

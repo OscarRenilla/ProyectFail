@@ -55,46 +55,48 @@ public class BibliotecaApp {
 
     private void registrarLibroDesdeConsola() {
         System.out.println("ISBN: ");
-        String isbn = BibliotecaApp.scanner.nextLine();
+        String isbn = scanner.nextLine();
         System.out.println("Título: ");
-        String titulo = BibliotecaApp.scanner.nextLine();
+        String titulo = scanner.nextLine();
         System.out.println("Autor: ");
-        String autor = BibliotecaApp.scanner.next();
+        String autor = scanner.nextLine();
         System.out.println("Año publicación: ");
-        int anio = BibliotecaApp.scanner.nextInt();
+        int anio = Integer.parseInt(scanner.nextLine());
         System.out.println("Ejemplares totales: ");
-        ArrayList<Integer> totales = (ArrayList<Integer>) Collections.singletonList(BibliotecaApp.scanner.nextInt());
-        System.out.println("Ejemplares disponibles: ");
-        ArrayList<Integer> disponibles = (ArrayList<Integer>) Collections.singletonList(BibliotecaApp.scanner.nextInt());
+        int totales = Integer.parseInt(scanner.nextLine());
 
-        Libro libro = new Libro(isbn, titulo, autor, anio, totales, disponibles);
+        Libro libro = new Libro(isbn, titulo, autor, anio, totales);
         servicio.registrarLibro(libro);
+
+        System.out.println("Libro registrado correctamente");
     }
 
     private void registrarUsuarioDesdeConsola() {
         System.out.println("ID usuario: ");
-        String id = scanner.next();
+        String id = scanner.nextLine();
         System.out.println("Nombre: ");
         String nombre = scanner.nextLine(); 
 
         Usuario usuario = new Usuario(id, nombre);
         servicio.registrarUsuario(usuario);
+
+        System.out.println("Usuario registrado correctamente");
     }
 
     private void prestarLibroDesdeConsola() {
         System.out.println("ID usuario: ");
-        String id = scanner.next();
+        String id = scanner.nextLine();
         System.out.println("ISBN libro: ");
-        String isbn = scanner.next();
+        String isbn = scanner.nextLine();
 
         servicio.prestarLibro(id, isbn);
     }
 
     private void devolverLibroDesdeConsola() {
         System.out.println("ID usuario: ");
-        String id = scanner.next();
+        String id = scanner.nextLine();
         System.out.println("ISBN libro: ");
-        String isbn = scanner.next();
+        String isbn = scanner.nextLine();
 
         servicio.devolverLibro(id, isbn);
     }
